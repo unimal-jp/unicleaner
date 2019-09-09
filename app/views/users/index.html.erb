@@ -1,5 +1,18 @@
 <ul>
   <% @users.each do |user| %>
-  <li><%= user.name %></li>
+  <li>
+    <%= user.name %>
+    <form>
+      <div class="form-group">
+        <select class="form-control" id="exampleFormContrlSelect">
+          <option>月</option>
+          <option>火</option>
+          <option>水</option>
+          <option>木</option>
+          <option>金</option>
+        </select>
+      </div>
+    </form>
+  </li>
   <% end %>
 </ul>

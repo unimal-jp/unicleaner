@@ -7,5 +7,5 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 5.times do |i|
-  User.create(name: "#{i}#{i}#{i}#{i}#{i}")
+  User.create(name: "平石太郎", day: (1..5).to_a.sample, isDone: false)
 end

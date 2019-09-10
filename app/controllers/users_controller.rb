@@ -9,6 +9,8 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
+    @user.save
+    redirect_to 'index'
   end
 
   def show
@@ -26,5 +28,6 @@ class UsersController < ApplicationController
   private
 
     def user_params
+      params.require(:user).permit(:name)
     end
 end

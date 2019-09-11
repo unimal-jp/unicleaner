@@ -1,7 +1,7 @@
 class SchedulesController < ApplicationController
   def index
-    today = Date.today
-    first_date_of_month = Date.new(today.year, today.month, 1)
+    @today = Date.today
+    first_date_of_month = Date.new(@today.year, @today.month, 1)
 
     dates = []
 

@@ -1,3 +1,5 @@
+<span><%= @today.year %></span>年
+<span><%= @today.month %></span>月
 <table>
   <thead>
     <tr>
@@ -8,7 +10,7 @@
     <% @weeks.each do |week| %>
       <tr>
         <% week.each do |date| %>
-          <td><%= date %></td>
+          <td><%= date.day %></td>
         <% end %>
       </tr>
     <% end %>

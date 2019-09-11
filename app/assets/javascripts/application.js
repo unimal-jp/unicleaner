@@ -22,19 +22,11 @@
 
 document.addEventListener('DOMContentLoaded', function() {
   document.querySelectorAll('.day').forEach(function(element) {
-    // element.onclick = function(e) {
-    //   let date = e.target;
-    //   console.log(date);
-    // }
     element.addEventListener('click', function(e) {
-      // console.log('click');
       var eHTML = e.target.innerHTML;
-      // eHTML = Date.parse(eHTML)
       var year = parseInt(eHTML.slice(4, 8), 10);
       var month = parseInt(eHTML.slice(9, 11), 10);
       var day = parseInt(eHTML.slice(12, 14), 10);
-      // var month = eHTML.slice(9, 11);
-      // var day = eHTML.slice(12, 14);
       console.log(year);
       console.log(month);
       console.log(day);

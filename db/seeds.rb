@@ -5,7 +5,7 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-
-5.times do |i|
-  User.create(name: "平石太郎", day: (1..5).to_a.sample, isDone: false)
+names = ['千田法孝', '前多邦彦', '岩井益弘', '坂東友章', '寺本真達']
+names.each do |name|
+  User.create(name: name)
 end

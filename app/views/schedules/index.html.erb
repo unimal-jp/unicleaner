@@ -16,4 +16,21 @@
     <% end %>
   </tbody>
 </table>
-<%= @next_day %>
+
+<table>
+  <thead>
+    <tr>
+      <th>担当者</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @users.each do |user| %>
+      <tr>
+        <td><%= user.name %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<div class="d-flex">
+</div>

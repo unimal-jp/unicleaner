@@ -15,7 +15,9 @@ class SchedulesController < ApplicationController
       dates.push(date)
     end
     @weeks = dates.each_slice(7).to_a
+
     last_date_of_month = @weeks[-1][-1]
+
     unless last_date_of_month.saturday?
       until @weeks[-1][-1].saturday?
         last_date_of_month = @weeks[-1][-1]
@@ -23,7 +25,8 @@ class SchedulesController < ApplicationController
         @weeks[-1].push(next_day)
       end
     end
-    @users = User.all
+
+    @person = Schedule.first.user.name
   end
 
   def new

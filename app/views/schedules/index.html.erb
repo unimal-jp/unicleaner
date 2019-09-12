@@ -3,12 +3,13 @@
 <table>
   <thead>
     <tr>
-      <th>日</th><th>月</th><th>火</th><th>水</th><th>木</th><th>金</th><th>土</th>
+      <th>担当者</th><th>日</th><th>月</th><th>火</th><th>水</th><th>木</th><th>金</th><th>土</th>
     </tr>
   </thead>
   <tbody>
     <% @weeks.each do |week| %>
       <tr>
+        <td><%= @person %></td>
         <% week.each do |date| %>
           <td><%= date.day %></td>
         <% end %>
@@ -16,21 +17,3 @@
     <% end %>
   </tbody>
 </table>
-
-<table>
-  <thead>
-    <tr>
-      <th>担当者</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @users.each do |user| %>
-      <tr>
-        <td><%= user.name %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<div class="d-flex">
-</div>

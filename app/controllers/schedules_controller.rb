@@ -26,7 +26,7 @@ class SchedulesController < ApplicationController
       end
     end
 
-    @person = Schedule.first.user.name
+    @persons = User.all
   end
 
   def new

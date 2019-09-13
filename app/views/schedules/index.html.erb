@@ -7,9 +7,14 @@
     </tr>
   </thead>
   <tbody>
-    <% @weeks.each do |week| %>
+    <% @weeks.each_with_index do |week, index| %>
       <tr>
-        <td><%= @person %></td>
+        <% schedule = Schedule.find_by(first_date_of_week: week[0]) %>
+
+
+        <% scule = Schedule.find_by(year: @today.year, month: @today.month, week: index + 1) %>
+        <% schedule = schedule(@today.year, @today.month, index + 1, week[-1]) %>
+        <td><%= schedule ? schedule.user.name : '' %></td>
         <% week.each do |date| %>
           <td><%= date.day %></td>
         <% end %>
@@ -17,3 +22,16 @@
     <% end %>
   </tbody>
 </table>
+
+
+def schedule(year, month, week_no, last_date_of_week)
+  if last_date_of_week.month == month
+    Schedule.find_by(year: @today.year, month: @today.month, week: week_no)
+  else
+    if month == 12
+      Schedule.find_by(year: @today.year + 1, month: 1, week: 1)
+    else
+      Schedule.find_by(year: @today.year, month: @today.month + 1, week: 1)
+    end
+  end
+end

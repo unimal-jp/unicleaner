@@ -29,17 +29,4 @@ class SchedulesController < ApplicationController
     @persons = User.all
   end
 
-  def new
-    @schedule = Schedule.new
-  end
-
-  def create
-    @schedule = Schedule.new(schedule_params)
-  end
-
-  private
-
-    def schedule_params
-      params.require(:schedules).permit(:year, :month, :week, :day, :status)
-    end
 end

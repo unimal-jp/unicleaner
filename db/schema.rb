@@ -10,18 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_12_043601) do
-
-  create_table "schedules", force: :cascade do |t|
-    t.integer "year"
-    t.integer "month"
-    t.integer "week"
-    t.integer "day"
-    t.string "status"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.integer "user_id"
-  end
+ActiveRecord::Schema.define(version: 2019_09_13_015528) do
 
   create_table "users", force: :cascade do |t|
     t.string "name"

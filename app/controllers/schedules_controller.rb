@@ -26,7 +26,23 @@ class SchedulesController < ApplicationController
       end
     end
 
-    @persons = User.all
+    @users = User.all
+    @users.each do |user|
+      user.id
+    end
   end
 
+  def new
+  end
+
+  def create
+    @schedule = Schedule.new(schedule_params)
+    @schedule.save
+  end
+
+  private
+
+    def schedule_params
+      params.require(:schedule).permit(:user_id, :first_date_of_week)
+    end
 end

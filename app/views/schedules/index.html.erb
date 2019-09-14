@@ -11,7 +11,6 @@
       <% schedule = Schedule.find_by(first_date_of_week: week[0]) || Schedule.new(first_date_of_week: week[0]) %>
       <tr>
         <td>
-          <!-- セレクトボックス -->
           <%= form_for schedule do |f| %>
             <%= f.select :user_id, options(@users), include_blank: '選択ボックス' %>
             <%= f.hidden_field(:first_date_of_week) %>

@@ -27,17 +27,23 @@ class SchedulesController < ApplicationController
     end
 
     @users = User.all
-    @users.each do |user|
-      user.id
-    end
-  end
-
-  def new
   end
 
   def create
-    @schedule = Schedule.new(schedule_params)
-    @schedule.save
+    schedule = Schedule.new(schedule_params)
+    if schedule.save
+      redirect_to root_url
+    end
+  end
+
+  def edit
+  end
+
+  def update
+    @schedule = Schedule.find(params[:id])
+    if @schedule.update(schedule_params)
+      redirect_to root_url
+    end
   end
 
   private

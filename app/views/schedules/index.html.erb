@@ -12,13 +12,14 @@
       <tr>
         <td>
           <%= form_for schedule do |f| %>
-            <%= f.select :user_id, options(@users), include_blank: '選択ボックス' %>
+            <%= f.select :user_id, options(@users), {include_blank: '選択ボックス'}, class: 'select-box' %>
+            <%= f.text_field :scheduled_date %>
             <%= f.hidden_field(:first_date_of_week) %>
             <%= f.submit %>
           <% end %>
         </td>
         <% week.each do |date| %>
-          <td>
+          <td class="scheduled_date" data-date="<%= date %>">
             <%= date.day %>
           </td>
         <% end %>

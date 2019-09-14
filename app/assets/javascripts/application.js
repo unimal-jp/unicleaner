@@ -21,15 +21,16 @@
 //= require_tree .
 
 document.addEventListener('DOMContentLoaded', function() {
-  document.querySelectorAll('.day').forEach(function(element) {
+  document.querySelectorAll('.scheduled_date').forEach(function(element) {
     element.addEventListener('click', function(e) {
-      var eHTML = e.target.innerHTML;
-      var year = parseInt(eHTML.slice(4, 8), 10);
-      var month = parseInt(eHTML.slice(9, 11), 10);
-      var day = parseInt(eHTML.slice(12, 14), 10);
-      console.log(year);
-      console.log(month);
-      console.log(day);
+      let input = document.getElementById('schedule_scheduled_date');
+      let scheduled_date = e.target.dataset.date;
+      input.value = scheduled_date;
+    });
+  });
+  document.querySelectorAll('.select-box').forEach(function(element) {
+    element.addEventListener('change', function(e) {
+      e.target.parentNode.submit();
     });
   });
 });

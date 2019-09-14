@@ -40,8 +40,8 @@ class SchedulesController < ApplicationController
   end
 
   def update
-    @schedule = Schedule.find(params[:id])
-    if @schedule.update(schedule_params)
+    schedule = Schedule.find(params[:id])
+    if schedule.update(schedule_params)
       redirect_to root_url
     end
   end
@@ -49,6 +49,6 @@ class SchedulesController < ApplicationController
   private
 
     def schedule_params
-      params.require(:schedule).permit(:user_id, :first_date_of_week)
+      params.require(:schedule).permit(:user_id, :first_date_of_week, :scheduled_date)
     end
 end

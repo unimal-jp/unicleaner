@@ -14,7 +14,7 @@ ActiveRecord::Schema.define(version: 2019_09_09_022902) do
 
   create_table "users", force: :cascade do |t|
     t.string "name"
-    t.string "password"
+    t.string "password_digest"
     t.date "first_date_of_week"
     t.boolean "admin", default: false, null: false
     t.datetime "created_at", null: false

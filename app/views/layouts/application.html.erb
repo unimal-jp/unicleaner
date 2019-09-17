@@ -13,12 +13,15 @@
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
       <%= link_to 'Unicleaner', root_path, class: 'navbar-brand' %>
       <div class="collapse navbar-collapse">
-          <%= link_to 'ホーム', root_path, class: 'nav-item nav-link' %>
         <% if current_user %>
-          <%= link_to 'ログアウト', logout_path, method: :delete, class: 'nav-item nav-link' %>
+        <%= link_to 'ログアウト', logout_path, method: :delete, class: 'nav-item nav-link' %>
+        <%= link_to '編集', edit_user_path(current_user), class: 'nav-item nav-link' %>
+        <%= link_to 'ホーム', user_path(current_user), class: 'nav-item nav-link' %>
         <% else %>
-          <%= link_to 'ログイン', login_path, class: 'nav-item nav-link' %>
           <%= link_to '新規登録', new_user_path, class: 'nav-item nav-link' %>
+        <% end %>
+        <% if current_user&.admin? %>
+          <%= link_to '管理画面', users_path, class: 'nav-item nav-link' %>
         <% end %>
       </div>
     </nav>

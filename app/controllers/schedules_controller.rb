@@ -1,13 +1,12 @@
 class SchedulesController < ApplicationController
   def new
-    @schedule = Schedule.new
   end
 
   def create
-    @schedule = Schedule.new(schedules_params)
+    @schedule = current_user.schedules.build(schedules_params)
 
     if @schedule.save
-      redirect_to root_url
+      redirect_to user_path(current_user)
     else
       render :new
     end

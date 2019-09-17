@@ -1,9 +1,9 @@
-<h1>詳細</h1>
-<h2><%= @user.name %></h2>
-<table>
-  <thead>
+<h1 class="font-italic">詳細</h1>
+<h2 class="font-italic"><%= @user.name %></h2>
+<table class="table">
+  <thead class="thead-dark">
     <tr>
-      <th>日</th><th>月</th><th>火</th><th>水</th><th>木</th><th>金</th><th>土</th>
+      <th scope="col">日</th><th scope="col">月</th><th scope="col">火</th><th scope="col">水</th><th scope="col">木</th><th scope="col">金</th><th scope="col">土</th>
     </tr>
   </thead>
   <tbody>
@@ -18,14 +18,3 @@
     </tr>
   </tbody>
 </table>
-
-<% schedules = @user.schedules %>
-<ul>
-  <% schedules.each do |schedule| %>
-  <li>
-    <%= schedule.scheduled_date %>
-    <%= link_to '削除', schedule_path(schedule), method: :delete %>
-    <%= link_to '編集', edit_schedule_path(schedule) %>
-  </li>
-  <% end %>
-</ul>

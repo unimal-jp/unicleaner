@@ -1,20 +1,8 @@
 <%= form_with url: schedules_path, scope: :schedule, model: @shedule do |f| %>
   <div class="form-group">
     <%= f.label :scheduled_date, '作業日' %>
-    <%= f.select :scheduled_date, option(current_user), class: 'form-control' %>
+    <%= f.select :scheduled_date, option(current_user), { include_blank: '選択してください' }, class: 'form-control' %>
   </div>
     <%= f.submit '決定する', class: 'btn btn-primary' %>
 <% end %>
 <%= current_user.name %>
-
-
-<div class="form-group">
-    <label for="exampleFormControlSelect1">Example select</label>
-    <select class="form-control" id="exampleFormControlSelect1">
-      <option>1</option>
-      <option>2</option>
-      <option>3</option>
-      <option>4</option>
-      <option>5</option>
-    </select>
-  </div>

@@ -1,6 +1,21 @@
 <h1>詳細</h1>
 <h2><%= @user.name %></h2>
-<h2><%= @user.first_date_of_week %></h2>
+<table>
+  <thead>
+    <tr>
+      <th>日</th><th>月</th><th>火</th><th>水</th><th>木</th><th>金</th><th>土</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% sunday = @user.first_date_of_week %>
+    <tr>
+      <% 7.times do %>
+      <td><%= sunday.day %></td>
+      <% sunday = sunday.next_day %>
+      <% end %>
+    </tr>
+  </tbody>
+</table>
 
 <% schedules = @user.schedules %>
 <ul>

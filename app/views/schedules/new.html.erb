@@ -1,2 +1,7 @@
-<h1>Schedules#new</h1>
-<p>Find me in app/views/schedules/new.html.erb</p>
+<%= form_with scope: :schedule, model: @shedule do |f| %>
+  <div class="form-group">
+    <%= f.label :scheduled_date, '作業日' %>
+    <%= f.text_field :scheduled_date, class: 'form-control' %>
+  </div>
+    <%= f.submit '決定する', class: 'btn btn-primary' %>
+<% end %>

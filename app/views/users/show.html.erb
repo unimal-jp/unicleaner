@@ -7,11 +7,13 @@
     </tr>
   </thead>
   <tbody>
-    <% sunday = @user.first_date_of_week %>
     <tr>
-      <% 7.times do %>
-      <td><%= sunday.day %></td>
-      <% sunday = sunday.next_day %>
+      <% dates(@user).each do |date| %>
+        <% if date == @user.schedules.first&.scheduled_date %>
+          <td class="bg-info"><%= date.day %></td>
+        <% else %>
+          <td><%= date.day %></td>
+        <% end %>
       <% end %>
     </tr>
   </tbody>
@@ -27,5 +29,3 @@
   </li>
   <% end %>
 </ul>
-
-<% scheduled_date = @user.schedules.first.scheduled_date %>

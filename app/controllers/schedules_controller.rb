@@ -13,6 +13,18 @@ class SchedulesController < ApplicationController
     end
   end
 
+  def edit
+    @schedule = Schedule.find(params[:id])
+  end
+
+  def update
+    @schedule = Schedule.find(params[:id])
+
+    if @schedule.update(schedules_params)
+      redirect_to user_path(current_user)
+    end
+  end
+
   def destroy
     schedule = Schedule.find(params[:id])
     schedule.destroy

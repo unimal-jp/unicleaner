@@ -23,6 +23,7 @@
   <li>
     <%= schedule.scheduled_date %>
     <%= link_to '削除', schedule_path(schedule), method: :delete %>
+    <%= link_to '編集', edit_schedule_path(schedule) %>
   </li>
   <% end %>
 </ul>

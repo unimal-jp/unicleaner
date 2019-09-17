@@ -1,0 +1,8 @@
+<%= form_with url: schedule_path, scope: :schedule, model: @shedule, method: :patch do |f| %>
+  <div class="form-group">
+    <%= f.label :scheduled_date, '作業日' %>
+    <%= f.select :scheduled_date, option(current_user), { include_blank: '選択してください' }, class: 'form-control' %>
+  </div>
+    <%= f.submit '決定する', class: 'btn btn-primary' %>
+<% end %>
+<%= current_user.name %>

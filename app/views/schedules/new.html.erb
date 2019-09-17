@@ -1,4 +1,4 @@
-<%= form_with scope: :schedule, model: @shedule do |f| %>
+<%= form_with url: schedules_path, scope: :schedule, model: @shedule do |f| %>
   <div class="form-group">
     <%= f.label :scheduled_date, '作業日' %>
     <%= f.text_field :scheduled_date, class: 'form-control' %>

@@ -20,6 +20,9 @@
 <% schedules = @user.schedules %>
 <ul>
   <% schedules.each do |schedule| %>
-  <li><%= schedule.scheduled_date %></li>
+  <li>
+    <%= schedule.scheduled_date %>
+    <%= link_to '削除', schedule_path(schedule), method: :delete %>
+  </li>
   <% end %>
 </ul>

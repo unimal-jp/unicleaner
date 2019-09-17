@@ -17,7 +17,7 @@
           <%= link_to 'ログアウト', logout_path, method: :delete, class: 'nav-item nav-link' %>
           <%= link_to '編集', edit_user_path(current_user), class: 'nav-item nav-link' %>
           <%= link_to 'ホーム', user_path(current_user), class: 'nav-item nav-link' %>
-          <%= link_to '作業日設定', schedule_path, class: 'nav-item nav-link' %>
+          <%= link_to '作業日設定', new_schedule_path, class: 'nav-item nav-link' %>
         <% else %>
           <%= link_to '新規登録', new_user_path, class: 'nav-item nav-link' %>
         <% end %>

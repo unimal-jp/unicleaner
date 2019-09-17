@@ -6,6 +6,5 @@ Rails.application.routes.draw do
   post '/', to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy'
 
-  get '/schedule', to: 'schedules#new'
-  post '/schedule', to: 'schedules#create'
+  resources :schedules
 end

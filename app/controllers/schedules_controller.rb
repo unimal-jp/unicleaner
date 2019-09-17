@@ -13,6 +13,12 @@ class SchedulesController < ApplicationController
     end
   end
 
+  def destroy
+    schedule = Schedule.find(params[:id])
+    schedule.destroy
+    redirect_to user_path(current_user)
+  end
+
   private
 
     def schedules_params

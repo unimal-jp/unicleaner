@@ -19,7 +19,6 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @schedule = @user.schedules.build
   end
 
   def edit

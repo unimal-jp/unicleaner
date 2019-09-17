@@ -2,14 +2,6 @@
 <h2><%= @user.name %></h2>
 <h2><%= @user.first_date_of_week %></h2>
 
-<%= form_with url: schedule_path, model: @schedule do |f| %>
-  <div class="form-group">
-    <%= f.label :scheduled_date, '作業日' %>
-    <%= f.text_field :scheduled_date, class: 'form-control' %>
-  </div>
-  <%= f.submit '登録する', class: 'btn btn-primary' %>
-<% end %>
-
 <% schedules = @user.schedules %>
 <ul>
   <% schedules.each do |schedule| %>

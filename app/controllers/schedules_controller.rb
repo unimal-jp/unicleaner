@@ -1,5 +1,6 @@
 class SchedulesController < ApplicationController
   def new
+    @schedule = current_user.schedules.build
   end
 
   def create

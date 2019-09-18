@@ -9,17 +9,19 @@
   <tbody>
     <% @weeks.each_with_index do |week, index| %>
       <% schedule = Schedule.find_by(first_date_of_week: week[0]) || Schedule.new(first_date_of_week: week[0]) %>
+      <% form_id = "schedule_form_#{index}" %>
       <tr>
         <td>
-          <%= form_for schedule do |f| %>
-            <%= f.select :user_id, options(@users), {include_blank: '選択ボックス'}, class: 'select-box' %>
-            <%= f.text_field :scheduled_date %>
-            <%= f.hidden_field(:first_date_of_week) %>
-            <%= f.submit %>
+          <%= form_for schedule, html: { id: form_id } do |f| %>
+            <%= f.select :user_id, options(@users), {include_blank: ''}, class: 'select-box' %>
+            <%= f.hidden_field :scheduled_date, class: 'scheduled-date' %>
+            <%= f.hidden_field :first_date_of_week %>
           <% end %>
         </td>
         <% week.each do |date| %>
-          <td class="scheduled_date" data-date="<%= date %>">
+          <% date_class =  date == schedule.scheduled_date ? 'scheduled-date date' : 'date'%>
+          <td class="<%= date_class %>" data-date="<%= date %>" data-form-id="<%= form_id %>">
+
             <%= date.day %>
           </td>
         <% end %>

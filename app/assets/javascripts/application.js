@@ -21,11 +21,17 @@
 //= require_tree .
 
 document.addEventListener('DOMContentLoaded', function() {
-  document.querySelectorAll('.scheduled_date').forEach(function(element) {
+  document.querySelectorAll('.date').forEach(function(element) {
     element.addEventListener('click', function(e) {
-      let input = document.getElementById('schedule_scheduled_date');
-      let scheduled_date = e.target.dataset.date;
-      input.value = scheduled_date;
+      const formId = e.target.dataset.formId;
+      const form = document.getElementById(formId);
+      const value = form.querySelector('#schedule_user_id').value;
+      if (!value) {
+        alert('担当者を選んでください');
+        return;
+      }
+      form.querySelector('.scheduled-date').value = e.target.dataset.date;
+      form.submit();
     });
   });
   document.querySelectorAll('.select-box').forEach(function(element) {

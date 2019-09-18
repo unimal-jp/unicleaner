@@ -4,6 +4,12 @@
 *= require_self
 */
 @import "bootstrap";
-.day {
+.date {
   cursor: pointer;
+}
+.date:hover {
+  background-color: gray;
+}
+.scheduled-date {
+  background-color: blue;
 }

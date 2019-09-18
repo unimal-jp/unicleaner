@@ -16,7 +16,7 @@ ActiveRecord::Schema.define(version: 2019_09_13_045348) do
     t.date "first_date_of_week"
     t.integer "user_id"
     t.date "scheduled_date"
-    t.string "status"
+    t.boolean "status", default: false, null: false
   end
 
   create_table "users", force: :cascade do |t|

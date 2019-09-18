@@ -39,4 +39,9 @@ document.addEventListener('DOMContentLoaded', function() {
       e.target.parentNode.submit();
     });
   });
+  document.querySelectorAll('.check-box').forEach(function(element) {
+    element.addEventListener('change', function(e) {
+      e.target.parentNode.submit();
+    });
+  });
 });

@@ -4,7 +4,7 @@ class CreateSchedules < ActiveRecord::Migration[5.2]
       t.date :first_date_of_week
       t.integer :user_id
       t.date :scheduled_date
-      t.string :status
+      t.boolean :status, null: false, default: false
     end
   end
 end

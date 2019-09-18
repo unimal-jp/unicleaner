@@ -1,7 +1,1 @@
-<%= form_for @user do |f| %>
-  <div class="form-group">
-    <%= f.label :name, '名前' %>
-    <%= f.text_field :name, class: 'form-control' %>
-  </div>
-  <%= f.submit '登録する', class: 'btn btn-primary' %>
-<% end %>
+<%= render partial: 'form', locals: { user: @user } %>

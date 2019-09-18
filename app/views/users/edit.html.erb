@@ -1,4 +1,1 @@
-<%= form_for @user, url: { action: "update" } do |f| %>
-  <%= f.text_field :name %>
-  <%= f.submit 'Update' %>
-<% end %>
+<%= render partial: 'form', locals: { user: @user } %>

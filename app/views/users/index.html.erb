@@ -1,9 +1,11 @@
-<ul>
-  <% @users.each do |user| %>
-  <li>
-    <%= user.name %>
-    <%= link_to 'Edit', edit_user_path(user) %>
-    <%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %>
-  </li>
-  <% end %>
-</ul>
+<div class="card">
+  <ul class="list-group list-group-flush">
+    <% @users.each do |user| %>
+      <li class="list-group-item">
+        <%= user.name %>
+        <%= link_to '編集', edit_user_path(user) %>
+        <%= link_to '削除', user, method: :delete, data: { confirm: 'Are you sure?' } %>
+      </li>
+    <% end %>
+  </ul>
+</div>

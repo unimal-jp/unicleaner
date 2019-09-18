@@ -39,8 +39,15 @@ document.addEventListener('DOMContentLoaded', function() {
       e.target.parentNode.submit();
     });
   });
-  document.querySelectorAll('.check-box').forEach(function(element) {
+  document.querySelectorAll('.radio-box').forEach(function(element) {
     element.addEventListener('change', function(e) {
+      const id = e.target.parentNode.parentNode.dataset.formId;
+      const formForRadio = document.getElementById(id);
+      const valueForRadio = formForRadio.querySelector('.scheduled-date').value;
+      if (!valueForRadio) {
+        alert('作業日を選んでください');
+        return;
+      }
       e.target.parentNode.submit();
     });
   });

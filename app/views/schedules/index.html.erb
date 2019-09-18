@@ -19,13 +19,15 @@
           <% end %>
         </td>
         <% week.each do |date| %>
-          <% date_class =  date == schedule.scheduled_date ? 'scheduled-date date' : 'date'%>
-          <td class="<%= date_class %>" data-date="<%= date %>" data-form-id="<%= form_id %>">
+          <% date_classes = ['date'] %>
+          <% date_classes.push('scheduled-date') if date == schedule.scheduled_date %>
+          <% date_classes.push('finished') if schedule.status  %>
+          <td class="<%= date_classes.join(' ') %>" data-date="<%= date %>" data-form-id="<%= form_id %>">
             <%= date.day %>
           </td>
         <% end %>
-        <td>
-          <%= form_for schedule, html: {class: 'check-box'} do |f| %>
+        <td data-form-id="<%= form_id %>">
+          <%= form_for schedule, html: {class: 'radio-box'} do |f| %>
             <%= f.radio_button :status, true %>
             <%= f.label :status, '完了', {value: true} %>
             <%= f.radio_button :status, false %>

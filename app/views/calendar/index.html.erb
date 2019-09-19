@@ -1,5 +1,8 @@
-<span><%= @today.year %></span>年
-<span><%= @today.month %></span>月
+<%= link_to '<', calendar_path(year: @year, month: @month - 1) %>
+<span><%= @year %></span>年
+<span><%= @month %></span>月
+<%= link_to '>', calendar_path(year:@year, month: @month + 1) %>
+
 <table class="table">
   <thead class="thead-dark">
     <tr>

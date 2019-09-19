@@ -34,7 +34,7 @@ document.addEventListener('DOMContentLoaded', function() {
   });
   document.querySelectorAll('.select-box').forEach(function(element) {
     element.addEventListener('change', function(e) {
-      e.target.parentNode.submit();
+      e.target.parentNode.parentNode.submit();
     });
   });
   document.querySelectorAll('.radio-box').forEach(function(element) {

@@ -30,13 +30,7 @@
           <% date_classes.push('scheduled-date') if date == schedule.scheduled_date %>
           <% date_classes.push('finished') if schedule.status && date == schedule.scheduled_date %>
           <td class="<%= date_classes.join(' ') %>" data-date="<%= date %>" data-form-id="<%= form_id %>">
-            <% if date == @today %>
-              <div class="today">
-                <%= date.day %>
-              </div>
-            <% else %>
-              <%= date.day %>
-            <% end %>
+            <%= date.day %>
           </td>
         <% end %>
         <td data-form-id="<%= form_id %>">

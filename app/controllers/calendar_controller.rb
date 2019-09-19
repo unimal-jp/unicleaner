@@ -3,18 +3,19 @@ class CalendarController < ApplicationController
     @today = Date.today
     @year = params[:year].to_i
     @month = params[:month].to_i
+    @users = User.all
+
+
+    if @year == 0 && @month == 0
+      @year = @today.year
+      @month = @today.month
+    end
     if @month == 0
       @year -= 1
       @month = 12
     elsif @month == 13
       @year += 1
       @month = 1
-    end
-    @users = User.all
-
-    if !@year || !@month
-      @year = @today.year
-      @month = @today.month
     end
       dates = []
 

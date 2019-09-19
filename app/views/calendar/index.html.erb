@@ -1,9 +1,11 @@
-<%= link_to '<', calendar_path(year: @year, month: @month - 1) %>
-<span><%= @year %></span>年
-<span><%= @month %></span>月
-<%= link_to '>', calendar_path(year:@year, month: @month + 1) %>
+<div class="mt-5 display-4">
+  <%= link_to '<', calendar_path(year: @year, month: @month - 1) %>
+  <span><%= @year %></span>年
+  <span><%= @month %></span>月
+  <%= link_to '>', calendar_path(year:@year, month: @month + 1) %>
+</div>
 
-<table class="table">
+<table class="table mt-5">
   <thead class="thead-dark">
     <tr>
       <th scope="col">担当者</th><th scope="col">日</th><th scope="col">月</th><th scope="col">火</th><th scope="col">水</th><th scope="col">木</th><th scope="col">金</th><th scope="col">土</th><th scope="col">完了?</th>
@@ -16,7 +18,9 @@
       <tr>
         <td>
           <%= form_for schedule, html: { id: form_id } do |f| %>
-            <%= f.select :user_id, options(@users), {include_blank: ''}, class: 'select-box' %>
+          <div class="form-group">
+            <%= f.select :user_id, options(@users), {include_blank: ''}, class: 'select-box form-control' %>
+          </div>
             <%= f.hidden_field :scheduled_date, class: 'scheduled-date' %>
             <%= f.hidden_field :first_date_of_week %>
           <% end %>

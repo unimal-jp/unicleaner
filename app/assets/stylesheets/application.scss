@@ -1,0 +1,22 @@
+/*
+*= require simple_calendar
+*= require_tree .
+*= require_self
+*/
+@import "bootstrap";
+.date {
+  cursor: pointer;
+}
+.date:hover {
+  background-color: gray;
+}
+.scheduled-date {
+  background-color: skyblue;
+}
+.finished {
+  background-color: red;
+}
+.today {
+  border: 5px solid red;
+  border-radius: 50%;
+}

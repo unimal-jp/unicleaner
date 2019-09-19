@@ -1,0 +1,42 @@
+<span><%= @today.year %></span>年
+<span><%= @today.month %></span>月
+<table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">担当者</th><th scope="col">日</th><th scope="col">月</th><th scope="col">火</th><th scope="col">水</th><th scope="col">木</th><th scope="col">金</th><th scope="col">土</th><th scope="col">完了?</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @weeks.each_with_index do |week, index| %>
+      <% schedule = Schedule.find_by(first_date_of_week: week[0]) || Schedule.new(first_date_of_week: week[0]) %>
+      <% form_id = "schedule_form_#{index}" %>
+      <tr>
+        <td>
+          <%= form_for schedule, html: { id: form_id } do |f| %>
+            <%= f.select :user_id, options(@users), {include_blank: ''}, class: 'select-box' %>
+            <%= f.hidden_field :scheduled_date, class: 'scheduled-date' %>
+            <%= f.hidden_field :first_date_of_week %>
+          <% end %>
+        </td>
+        <% week.each do |date| %>
+          <% date_classes = ['date'] %>
+          <% date_classes.push('scheduled-date') if date == schedule.scheduled_date %>
+          <% date_classes.push('finished') if schedule.status && date == schedule.scheduled_date %>
+          <td class="<%= date_classes.join(' ') %>" data-date="<%= date %>" data-form-id="<%= form_id %>">
+            <div class="<%= (date == @today) ? 'today' : '' %>">
+              <%= date.day %>
+            </div>
+          </td>
+        <% end %>
+        <td data-form-id="<%= form_id %>">
+          <%= form_for schedule, html: {class: 'radio-box'} do |f| %>
+            <%= f.radio_button :status, true %>
+            <%= f.label :status, '完了', {value: true} %>
+            <%= f.radio_button :status, false %>
+            <%= f.label :status, '未完了', {value: false} %>
+          <% end %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

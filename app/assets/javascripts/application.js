@@ -25,10 +25,8 @@ document.addEventListener('DOMContentLoaded', function() {
       const formId = e.target.dataset.formId;
       const form = document.getElementById(formId);
       console.log(form);
-      // // console.log(form);
       const value = form.querySelector('#schedule_user_id').value;
       console.log(value);
-      // // console.log(typeof form.querySelector('#schedule_user_id').value);
       if (value == '') {
         alert('担当者を選んでください');
         return;
@@ -56,7 +54,3 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   });
 });
-
-// document.addEventListener('DOMContentLoaded', function() {
-//   console.log(document);
-// });

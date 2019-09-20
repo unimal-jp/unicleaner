@@ -29,6 +29,7 @@
           <% date_classes = ['date'] %>
           <% date_classes.push('scheduled-date') if date == schedule.scheduled_date %>
           <% date_classes.push('finished') if schedule.status && date == schedule.scheduled_date %>
+          <% date_classes.push('today') if date == @today %>
           <td class="<%= date_classes.join(' ') %>" data-date="<%= date %>" data-form-id="<%= form_id %>">
             <%= date.day %>
           </td>

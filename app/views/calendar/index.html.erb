@@ -2,7 +2,7 @@
   <%= link_to '<', calendar_path(year: @year, month: @month - 1) %>
   <span><%= @year %></span>年
   <span><%= @month %></span>月
-  <%= link_to '>', calendar_path(year:@year, month: @month + 1) %>
+  <%= link_to '>', calendar_path(year:@year, month: @month + 1), data: {"turbolinks" => false} %>
 </div>
 
 <table class="table mt-5">

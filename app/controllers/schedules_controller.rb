@@ -25,7 +25,7 @@ class SchedulesController < ApplicationController
         @weeks[-1].push(next_day)
       end
     end
-    
+
     @users = User.all
   end
 

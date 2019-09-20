@@ -32,7 +32,8 @@ class SchedulesController < ApplicationController
   def create
     schedule = Schedule.new(schedule_params)
     if schedule.save
-      redirect_to root_url
+      # redirect_to root_url
+      redirect_back(fallback_location: root_path)
     end
   end
 
@@ -42,7 +43,8 @@ class SchedulesController < ApplicationController
   def update
     schedule = Schedule.find(params[:id])
     if schedule.update(schedule_params)
-      redirect_to root_url
+      # redirect_to root_url
+      redirect_back(fallback_location: root_path)
     end
   end
 
@@ -50,5 +52,9 @@ class SchedulesController < ApplicationController
 
     def schedule_params
       params.require(:schedule).permit(:user_id, :first_date_of_week, :scheduled_date, :status)
+    end
+
+    def calendar_params
+      params.permit(:year, :month)
     end
 end
